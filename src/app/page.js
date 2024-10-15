@@ -9,7 +9,7 @@ function Home() {
         margin: '0 auto',
       }}
     >
-      Welcome to Next JS!
+      Welcome to Space Pod Mania Showdown!
     </div>
   );
 }

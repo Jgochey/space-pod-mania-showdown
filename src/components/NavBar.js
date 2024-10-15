@@ -18,6 +18,15 @@ export default function NavBar() {
             <Link className="nav-link" href="/">
               Home
             </Link>
+            <Link className="nav-link" href="/favorite-podcasts">
+              Favorite Podcasts
+            </Link>
+            <Link className="nav-link" href="/showdown">
+              Showdown
+            </Link>
+            <Link className="nav-link" href="/leaderboard">
+              Leaderboard
+            </Link>
             <Button variant="danger" onClick={signOut}>
               Sign Out
             </Button>
