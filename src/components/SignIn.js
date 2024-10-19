@@ -7,13 +7,13 @@ function Signin() {
     <div
       className="text-center d-flex flex-column justify-content-center align-content-center"
       style={{
+        backgroundImage: 'https://i.ibb.co/5T2WCRF/PodLogo.jpg',
         height: '90vh',
         padding: '30px',
         maxWidth: '400px',
         margin: '0 auto',
       }}
     >
-      <h1>Hi there!</h1>
       <p>Click the button below to login!</p>
       <Button type="button" size="lg" className="copy-btn" onClick={signIn}>
         Sign In
