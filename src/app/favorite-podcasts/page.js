@@ -13,7 +13,7 @@ function FavoritePods() {
 
   // TODO: create a function that makes the API call to get all the books
   const getFavPodList = () => {
-    getFavPods().then(setPods);
+    getFavPods(1).then(setPods);
   };
 
   // TODO: make the call to the API to get all the books on component render
@@ -26,7 +26,7 @@ function FavoritePods() {
       <Link href="/pod/new" passHref>
         <Button>Add A Podcast</Button>
       </Link>
-      <div className="d-flex flex-wrap">
+      <div className="d-flex flex-wrap justify-content-md-center">
         {pods.map((pod) => (
           <PodCard key={pod.firebaseKey} podObj={pod} onUpdate={getFavPodList} />
         ))}

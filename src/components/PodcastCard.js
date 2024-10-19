@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
@@ -16,27 +16,22 @@ function PodCard({ podObj }) {
   //     deletePod(podObj.firebaseKey).then(() => onUpdate());
   //   }
   // };
-  const [isFavorite, setIsFavorite] = useState(false);
-
-  const handleClick = () => {
-    setIsFavorite(!isFavorite);
-  };
 
   return (
     <Card style={{ width: '18rem', margin: '10px' }}>
-      <Card.Img variant="top" src={podObj.imageURL} alt={podObj.title} style={{ height: '400px' }} />
+      <Card.Img variant="top" src={podObj.imageUrl} alt={podObj.title} style={{ height: '400px' }} />
       <Card.Body>
         <Card.Title>{podObj.title}</Card.Title>
-        <Card.Title>{podObj.userID}</Card.Title>
+        {podObj.genres.map((genre) => (
+          <p key={genre.id}>{genre.name}</p>
+        ))}
         {/* DYNAMIC LINK TO VIEW THE BOOK DETAILS  */}
         <Link href={`/${podObj.firebaseKey}`} passHref>
           <Button variant="primary" className="m-2">
             VIEW
           </Button>
         </Link>
-        <Button variant={isFavorite ? 'danger' : 'outline-danger'} onClick={handleClick}>
-          {isFavorite ? 'Unfavorite' : 'Favorite'}
-        </Button>
+        <Button variant={podObj.favorited ? 'outline-danger' : 'danger'}>{podObj.favorited ? '❌' : '⭐'}</Button>
         {/* <Button variant="danger" onClick={deleteThisBook} className="m-2">
           DELETE
         </Button> */}
@@ -47,10 +42,17 @@ function PodCard({ podObj }) {
 
 PodCard.propTypes = {
   podObj: PropTypes.shape({
-    imageURL: PropTypes.string,
+    imageUrl: PropTypes.string,
+    favorited: PropTypes.bool,
     title: PropTypes.string,
     userID: PropTypes.string,
     firebaseKey: PropTypes.string,
+    genres: PropTypes.arrayOf(
+      PropTypes.shape({
+        id: PropTypes.number,
+        name: PropTypes.string,
+      }),
+    ),
   }).isRequired,
 };
 
