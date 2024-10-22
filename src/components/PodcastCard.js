@@ -26,7 +26,7 @@ function PodCard({ podObj }) {
           <p key={genre.id}>{genre.name}</p>
         ))}
         {/* DYNAMIC LINK TO VIEW THE BOOK DETAILS  */}
-        <Link href={`/${podObj.firebaseKey}`} passHref>
+        <Link href={`view-page/${podObj.id}`} passHref>
           <Button variant="primary" className="m-2">
             VIEW
           </Button>
@@ -46,7 +46,7 @@ PodCard.propTypes = {
     favorited: PropTypes.bool,
     title: PropTypes.string,
     userID: PropTypes.string,
-    firebaseKey: PropTypes.string,
+    id: PropTypes.number,
     genres: PropTypes.arrayOf(
       PropTypes.shape({
         id: PropTypes.number,
