@@ -2,9 +2,10 @@
 
 import React from 'react';
 import PropTypes from 'prop-types';
-import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
+import Button from 'react-bootstrap/Button';
 import Link from 'next/link';
+import { toggleFavoritePod } from '../api/podData';
 
 //  ⭐
 
@@ -31,7 +32,9 @@ function PodCard({ podObj }) {
             VIEW
           </Button>
         </Link>
-        <Button variant={podObj.favorited ? 'outline-danger' : 'danger'}>{podObj.favorited ? '❌' : '⭐'}</Button>
+        <Button variant={podObj.favorited ? 'outline-danger' : 'danger'} onClick={toggleFavoritePod}>
+          {podObj.favorited ? '❌' : '⭐'}
+        </Button>
         {/* <Button variant="danger" onClick={deleteThisBook} className="m-2">
           DELETE
         </Button> */}

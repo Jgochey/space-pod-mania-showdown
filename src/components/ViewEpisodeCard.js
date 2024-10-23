@@ -3,10 +3,13 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import Card from 'react-bootstrap/Card';
+import Button from 'react-bootstrap/Button';
+import Link from 'next/link';
+import { deleteEpisode } from '../api/episodeData';
 
 //  ⭐
 
-function ViewPodcastCard({ episode }) {
+function ViewPodcastCard({ episode, onUpdate }) {
   // FOR DELETE, WE NEED TO REMOVE THE BOOK AND HAVE THE VIEW RERENDER,
   // SO WE PASS THE FUNCTION FROM THE PARENT THAT GETS THE BOOKS
   // const deleteThisPod = () => {
@@ -14,6 +17,12 @@ function ViewPodcastCard({ episode }) {
   //     deletePod(podObj.firebaseKey).then(() => onUpdate());
   //   }
   // };
+
+  const deleteThisEpisode = () => {
+    if (window.confirm(`Delete ${episode.title}?`)) {
+      deleteEpisode(episode.id).then(() => onUpdate());
+    }
+  };
 
   return (
     <Card style={{ width: '70%', margin: '10px' }}>
@@ -30,6 +39,14 @@ function ViewPodcastCard({ episode }) {
 
         {/* {podcastDetails.favorite ? ' 🤍' : ''} */}
       </div>
+      <Link href={`/episode/edit/${episode.id}`} passHref>
+        <Button variant="info">EDIT</Button>
+      </Link>
+      <div>
+        <Button variant="danger" onClick={deleteThisEpisode}>
+          DELETE
+        </Button>
+      </div>
     </Card>
   );
 }
@@ -40,7 +57,6 @@ ViewPodcastCard.propTypes = {
     favorited: PropTypes.bool,
     description: PropTypes.string,
     createdOn: PropTypes.string,
-    episodes: PropTypes.number,
     id: PropTypes.number,
     genres: PropTypes.arrayOf(
       PropTypes.shape({
@@ -49,6 +65,7 @@ ViewPodcastCard.propTypes = {
       }),
     ),
   }).isRequired,
+  onUpdate: PropTypes.func.isRequired,
 };
 
 export default ViewPodcastCard;
