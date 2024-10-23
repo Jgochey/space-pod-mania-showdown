@@ -69,4 +69,17 @@ const updateEpisode = (episodeId, payload) =>
       .catch(reject);
   });
 
-export { getFavEpisodes, createEpisode, deleteEpisode, toggleFavoriteEpisode, updateEpisode };
+const getSingleEpisode = (id, userId) =>
+  new Promise((resolve, reject) => {
+    fetch(`${endpoint}/episodes/${id}?userId=${userId}`, {
+      method: 'GET',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+    })
+      .then((response) => response.json())
+      .then((data) => resolve(data))
+      .catch(reject);
+  });
+
+export { getFavEpisodes, createEpisode, deleteEpisode, toggleFavoriteEpisode, updateEpisode, getSingleEpisode };
