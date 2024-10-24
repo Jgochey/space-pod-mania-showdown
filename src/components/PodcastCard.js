@@ -6,17 +6,13 @@ import Card from 'react-bootstrap/Card';
 import Button from 'react-bootstrap/Button';
 import Link from 'next/link';
 import { toggleFavoritePod } from '../api/podData';
+import { useAuth } from '../utils/context/authContext';
 
-//  ⭐
-
-function PodCard({ podObj }) {
-  // FOR DELETE, WE NEED TO REMOVE THE BOOK AND HAVE THE VIEW RERENDER,
-  // SO WE PASS THE FUNCTION FROM THE PARENT THAT GETS THE BOOKS
-  // const deleteThisPod = () => {
-  //   if (window.confirm(`Delete ${podObj.title}?`)) {
-  //     deletePod(podObj.firebaseKey).then(() => onUpdate());
-  //   }
-  // };
+function PodCard({ podObj, onUpdate }) {
+  const { user } = useAuth();
+  const doFav = () => {
+    toggleFavoritePod(podObj.id, user.id).then(() => onUpdate());
+  };
 
   return (
     <Card style={{ width: '18rem', margin: '10px' }}>
@@ -32,12 +28,9 @@ function PodCard({ podObj }) {
             VIEW
           </Button>
         </Link>
-        <Button variant={podObj.favorited ? 'outline-danger' : 'danger'} onClick={toggleFavoritePod}>
-          {podObj.favorited ? '❌' : '⭐'}
+        <Button variant={podObj.favorite ? 'danger' : 'outline-danger'} onClick={doFav}>
+          {podObj.favorite ? '⭐' : '❌'}
         </Button>
-        {/* <Button variant="danger" onClick={deleteThisBook} className="m-2">
-          DELETE
-        </Button> */}
       </Card.Body>
     </Card>
   );
@@ -46,9 +39,9 @@ function PodCard({ podObj }) {
 PodCard.propTypes = {
   podObj: PropTypes.shape({
     imageUrl: PropTypes.string,
-    favorited: PropTypes.bool,
+    favorite: PropTypes.bool,
     title: PropTypes.string,
-    userID: PropTypes.string,
+    userId: PropTypes.string,
     id: PropTypes.number,
     genres: PropTypes.arrayOf(
       PropTypes.shape({
@@ -57,6 +50,7 @@ PodCard.propTypes = {
       }),
     ),
   }).isRequired,
+  onUpdate: PropTypes.func.isRequired,
 };
 
 export default PodCard;

@@ -9,7 +9,7 @@ import { deleteEpisode } from '../api/episodeData';
 
 //  ⭐
 
-function ViewPodcastCard({ episode, onUpdate }) {
+function ViewPodcastCard({ episode, onUpdate, idPodcast }) {
   // FOR DELETE, WE NEED TO REMOVE THE BOOK AND HAVE THE VIEW RERENDER,
   // SO WE PASS THE FUNCTION FROM THE PARENT THAT GETS THE BOOKS
   // const deleteThisPod = () => {
@@ -39,7 +39,7 @@ function ViewPodcastCard({ episode, onUpdate }) {
 
         {/* {podcastDetails.favorite ? ' 🤍' : ''} */}
       </div>
-      <Link href={`/episode/edit/${episode.id}`} passHref>
+      <Link href={`/view-page/${idPodcast}/edit-episode/${episode.id}`} passHref>
         <Button variant="info">EDIT</Button>
       </Link>
       <div>
@@ -53,6 +53,7 @@ function ViewPodcastCard({ episode, onUpdate }) {
 
 ViewPodcastCard.propTypes = {
   episode: PropTypes.shape({
+    podcastId: PropTypes.number,
     title: PropTypes.string,
     favorited: PropTypes.bool,
     description: PropTypes.string,
@@ -65,6 +66,7 @@ ViewPodcastCard.propTypes = {
       }),
     ),
   }).isRequired,
+  idPodcast: PropTypes.number.isRequired,
   onUpdate: PropTypes.func.isRequired,
 };
 

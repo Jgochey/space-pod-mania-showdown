@@ -54,57 +54,7 @@ const toggleFavoritePod = (podcastId, userId) =>
       .catch(reject);
   });
 
-const getOtherPods = () =>
-  new Promise((resolve, reject) => {
-    fetch(`${endpoint}/otherpodcasts.json`, {
-      method: 'GET',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-    })
-      .then((response) => response.json())
-      .then((data) => resolve(Object.values(data)))
-      .catch(reject);
-  });
-
-const getSingleOtherPod = (firebaseKey) =>
-  new Promise((resolve, reject) => {
-    fetch(`${endpoint}/otherpodcasts/${firebaseKey}.json`, {
-      method: 'GET',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-    })
-      .then((response) => response.json())
-      .then((data) => resolve(data))
-      .catch(reject);
-  });
-
-const getSingleEpisode = (firebaseKey) =>
-  new Promise((resolve, reject) => {
-    fetch(`${endpoint}/otherpodcasts/${firebaseKey}/episodes.json`, {
-      method: 'GET',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-    })
-      .then((response) => response.json())
-      .then((data) => resolve(data))
-      .catch(reject);
-  });
-
-const viewOtherPodcastDetails = (firebaseKey) =>
-  new Promise((resolve, reject) => {
-    getSingleOtherPod(firebaseKey)
-      .then((podObject) => {
-        getSingleEpisode(podObject.episodes).then((episodeObject) => {
-          resolve({ episodeObject, ...podObject });
-        });
-      })
-      .catch((error) => reject(error));
-  });
-
-export { getPods, getFavPods, getSinglePod, toggleFavoritePod, getOtherPods, getSingleOtherPod, getSingleEpisode, viewOtherPodcastDetails };
+export { getPods, getFavPods, getSinglePod, toggleFavoritePod };
 
 // const deletePawd = (firebaseKey) =>
 //   new Promise((resolve, reject) => {

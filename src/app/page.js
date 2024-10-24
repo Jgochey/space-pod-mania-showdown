@@ -15,13 +15,13 @@ function Home() {
 
   // TODO: create a function that makes the API call to get all the books
   const getAllPods = () => {
-    getPods(1).then(setPods);
+    getPods(user.id).then(setPods);
   };
 
   // TODO: make the call to the API to get all the books on component render
   useEffect(() => {
     // Delete when done
-    console.warn(user.id);
+    // console.warn(user.id);
     getAllPods();
   }, []);
 
