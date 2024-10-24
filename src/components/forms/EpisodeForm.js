@@ -65,7 +65,7 @@ function EpisodeForm({ obj = initialState, podcastId }) {
       </FloatingLabel>
 
       <FloatingLabel controlId="floatingInput4" label="Podcast Duration" className="mb-3">
-        <Form.Control type="text" placeholder="2024-01-01 00:00:00" name="duration" value={formInput.imageUrl} onChange={handleChange} />
+        <Form.Control type="number" placeholder="2024-01-01 00:00:00" name="duration" value={formInput.duration} onChange={handleChange} />
       </FloatingLabel>
 
       {/* A WAY TO HANDLE UPDATES FOR TOGGLES, RADIOS, ETC  */}
