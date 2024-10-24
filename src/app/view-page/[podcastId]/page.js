@@ -6,15 +6,16 @@ import Button from 'react-bootstrap/Button';
 import Link from 'next/link';
 import { getSinglePod } from '../../../api/podData';
 import ViewPodcastCard from '../../../components/ViewEpisodeCard';
-// import { deleteEpisode } from '../../../api/episodeData';
+import { useAuth } from '../../../utils/context/authContext';
 
 export default function ViewPage({ params }) {
   const [podcastDetails, setPodcastDetails] = useState({});
 
   const { podcastId } = params;
+  const { user } = useAuth();
 
   const getPodInfo = () => {
-    getSinglePod(podcastId, 2).then(setPodcastDetails);
+    getSinglePod(podcastId, user.id).then(setPodcastDetails);
   };
 
   useEffect(() => {
@@ -25,7 +26,7 @@ export default function ViewPage({ params }) {
     <div className="EpisodeListContainer">
       <div className="EpisodeList">
         {podcastDetails?.episodes?.map((episode) => (
-          <ViewPodcastCard key={episode.id} episode={episode} onUpdate={getPodInfo} />
+          <ViewPodcastCard key={episode.id} episode={episode} onUpdate={getPodInfo} idPodcast={podcastId} />
         ))}
       </div>
 

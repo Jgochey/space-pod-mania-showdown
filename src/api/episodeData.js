@@ -55,9 +55,9 @@ const createEpisode = (payload) =>
       .catch(reject);
   });
 
-const updateEpisode = (episodeId, payload) =>
+const updateEpisode = (payload) =>
   new Promise((resolve, reject) => {
-    fetch(`${endpoint}/episodes/${payload.Id}`, {
+    fetch(`${endpoint}/episodes/${payload.id}`, {
       method: 'PUT',
       headers: {
         'Content-Type': 'application/json',

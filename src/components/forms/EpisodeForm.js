@@ -38,7 +38,7 @@ function EpisodeForm({ obj = initialState, podcastId }) {
   const handleSubmit = (e) => {
     e.preventDefault();
     if (obj.id) {
-      updateEpisode(formInput).then(() => router.push(`/view-page/${obj.id}`));
+      updateEpisode(formInput).then(() => router.push(`/view-page/${podcastId}`));
     } else {
       const payload = { ...formInput, podcastId };
       createEpisode(payload).then((episode) => router.push(`/view-page/${episode.podcastId}`));
