@@ -30,7 +30,7 @@ function FavoritePods() {
       </Link>
       <div className="d-flex flex-wrap justify-content-md-center">
         {pods.map((pod) => (
-          <PodCard key={pod.firebaseKey} podObj={pod} onUpdate={getFavPodList} />
+          <PodCard key={pod.id} podObj={pod} onUpdate={getFavPodList} />
         ))}
       </div>
     </div>
