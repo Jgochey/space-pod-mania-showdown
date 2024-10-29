@@ -9,10 +9,11 @@ import Button from 'react-bootstrap/Button';
 import Link from 'next/link';
 import { Image } from 'react-bootstrap';
 import { deleteEpisode } from '../api/episodeData';
+import { useAuth } from '../utils/context/authContext';
 
 //  ⭐
 
-function ViewPodcastCard({ episode, onUpdate, idPodcast }) {
+function ViewPodcastCard({ episode, onUpdate, idPodcast, podcastUser }) {
   // FOR DELETE, WE NEED TO REMOVE THE BOOK AND HAVE THE VIEW RERENDER,
   // SO WE PASS THE FUNCTION FROM THE PARENT THAT GETS THE BOOKS
   // const deleteThisPod = () => {
@@ -20,6 +21,8 @@ function ViewPodcastCard({ episode, onUpdate, idPodcast }) {
   //     deletePod(podObj.firebaseKey).then(() => onUpdate());
   //   }
   // };
+
+  const { user } = useAuth();
 
   const deleteThisEpisode = () => {
     if (window.confirm(`Delete ${episode.title}?`)) {
@@ -40,13 +43,20 @@ function ViewPodcastCard({ episode, onUpdate, idPodcast }) {
 
         {/* {podcastDetails.favorite ? ' 🤍' : ''} */}
       </div>
-      <Link href={`/view-page/${idPodcast}/edit-episode/${episode.id}`} passHref>
-        <Button variant="info">EDIT</Button>
-      </Link>
+
       <div>
-        <Button variant="danger" onClick={deleteThisEpisode}>
-          DELETE
-        </Button>
+        {user.id === podcastUser && (
+          <>
+            <Link href={`/view-page/${idPodcast}/edit-episode/${episode.id}`} passHref>
+              <Button variant="info">EDIT</Button>
+            </Link>
+            <div>
+              <Button variant="danger" onClick={deleteThisEpisode}>
+                DELETE
+              </Button>
+            </div>
+          </>
+        )}
       </div>
     </Card>
   );
@@ -68,6 +78,7 @@ ViewPodcastCard.propTypes = {
       }),
     ),
   }).isRequired,
+  podcastUser: PropTypes.number.isRequired,
   idPodcast: PropTypes.number.isRequired,
   onUpdate: PropTypes.func.isRequired,
 };
