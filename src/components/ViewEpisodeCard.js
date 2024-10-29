@@ -8,10 +8,8 @@ import Card from 'react-bootstrap/Card';
 import Button from 'react-bootstrap/Button';
 import Link from 'next/link';
 import { Image } from 'react-bootstrap';
-import { deleteEpisode } from '../api/episodeData';
+import { deleteEpisode, toggleFavoriteEpisode } from '../api/episodeData';
 import { useAuth } from '../utils/context/authContext';
-
-//  ⭐
 
 function ViewPodcastCard({ episode, onUpdate, idPodcast, podcastUser }) {
   // FOR DELETE, WE NEED TO REMOVE THE BOOK AND HAVE THE VIEW RERENDER,
@@ -30,6 +28,10 @@ function ViewPodcastCard({ episode, onUpdate, idPodcast, podcastUser }) {
     }
   };
 
+  const doFav = () => {
+    toggleFavoriteEpisode(episode.id, user.id).then(() => onUpdate());
+  };
+
   return (
     <Card style={{ width: '70%', margin: '10px' }}>
       <div className="mt-5 d-flex flex-wrap">
@@ -45,16 +47,18 @@ function ViewPodcastCard({ episode, onUpdate, idPodcast, podcastUser }) {
       </div>
 
       <div>
+        <Button variant={episode?.favorited ? 'danger' : 'outline-danger'} onClick={doFav}>
+          {episode?.favorited ? '⭐' : '❌'}
+        </Button>
         {user.id === podcastUser && (
           <>
             <Link href={`/view-page/${idPodcast}/edit-episode/${episode.id}`} passHref>
               <Button variant="info">EDIT</Button>
             </Link>
-            <div>
-              <Button variant="danger" onClick={deleteThisEpisode}>
-                DELETE
-              </Button>
-            </div>
+
+            <Button variant="danger" onClick={deleteThisEpisode}>
+              DELETE
+            </Button>
           </>
         )}
       </div>
