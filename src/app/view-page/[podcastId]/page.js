@@ -26,13 +26,15 @@ export default function ViewPage({ params }) {
     <div className="EpisodeListContainer">
       <div className="EpisodeList">
         {podcastDetails?.episodes?.map((episode) => (
-          <ViewPodcastCard key={episode.id} episode={episode} onUpdate={getPodInfo} idPodcast={podcastId} />
+          <ViewPodcastCard key={episode.id} episode={episode} podcastUser={podcastDetails?.user?.id} onUpdate={getPodInfo} idPodcast={podcastId} />
         ))}
       </div>
 
-      <Link href={`/view-page/${podcastId}/create-episode`} passHref>
-        <Button>Upload Episode</Button>
-      </Link>
+      {user.id === podcastDetails?.user?.id && (
+        <Link href={`/view-page/${podcastId}/create-episode`} passHref>
+          <Button>Upload Episode</Button>
+        </Link>
+      )}
     </div>
   );
 }
