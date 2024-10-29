@@ -20,3 +20,8 @@ body {
 .EpisodeListContainer {
 width: 100vw;
 }
+
+.uploadBtn {
+  display: flex;
+  justify-content: center;
+}

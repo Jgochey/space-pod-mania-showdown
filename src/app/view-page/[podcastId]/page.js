@@ -29,12 +29,13 @@ export default function ViewPage({ params }) {
           <ViewPodcastCard key={episode.id} episode={episode} podcastUser={podcastDetails?.user?.id} onUpdate={getPodInfo} idPodcast={podcastId} />
         ))}
       </div>
-
-      {user.id === podcastDetails?.user?.id && (
-        <Link href={`/view-page/${podcastId}/create-episode`} passHref>
-          <Button>Upload Episode</Button>
-        </Link>
-      )}
+      <div className="uploadBtn">
+        {user.id === podcastDetails?.user?.id && (
+          <Link href={`/view-page/${podcastId}/create-episode`} passHref>
+            <Button>Upload Episode</Button>
+          </Link>
+        )}
+      </div>
     </div>
   );
 }
