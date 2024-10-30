@@ -32,7 +32,7 @@ function Home() {
       </Link>
       <div className="d-flex flex-wrap justify-content-md-center">
         {pods.map((pod) => (
-          <PodCard key={pod.id} podObj={pod} onUpdate={getAllPods} />
+          <PodCard key={pod.id} podObj={pod} podcastUser={pod?.user?.id} onUpdate={getAllPods} />
         ))}
       </div>
     </div>
