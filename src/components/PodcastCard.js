@@ -26,6 +26,7 @@ function PodCard({ podObj, onUpdate, podcastUser }) {
       <Card.Img variant="top" src={podObj.imageUrl} alt={podObj.title} style={{ height: '400px' }} />
       <Card.Body>
         <Card.Title>{podObj.title}</Card.Title>
+        <Card.Title>{podObj.genre.name}</Card.Title>
         {/* {podObj.genres.map((genre) => (
           <p key={genre.id}>{genre.name}</p>
         ))} */}
@@ -68,7 +69,7 @@ PodCard.propTypes = {
     title: PropTypes.string,
     userId: PropTypes.string,
     id: PropTypes.number,
-    genres: PropTypes.arrayOf(
+    genre: PropTypes.arrayOf(
       PropTypes.shape({
         id: PropTypes.number,
         name: PropTypes.string,
