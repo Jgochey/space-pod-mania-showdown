@@ -8,22 +8,26 @@ import Form from 'react-bootstrap/Form';
 import { Button } from 'react-bootstrap';
 import { useAuth } from '../../utils/context/authContext';
 import { createPod, updatePod } from '../../api/podData';
+import ModalForGenre from '../ModalForGenre';
+import getGenres from '../../api/genreData';
 
 const initialState = {
   title: '',
   description: '',
   imageUrl: '',
-  genreId: 2,
+  genreId: 0,
 };
 
 function PodcastForm({ obj = initialState, podcastId }) {
   const [formInput, setFormInput] = useState(obj);
   const router = useRouter();
   const { user } = useAuth();
+  const [genreList, setGenreList] = useState([{}]);
 
   useEffect(() => {
     if (obj.id) setFormInput({ ...obj, genreId: obj.genre.id });
     console.log(obj);
+    getGenres().then(setGenreList);
   }, [obj, user]);
 
   const handleChange = (e) => {
@@ -40,8 +44,17 @@ function PodcastForm({ obj = initialState, podcastId }) {
       updatePod({ ...formInput, podcastId }).then(() => router.push(`/`));
     } else {
       const payload = { ...formInput, userId: user.id };
-      createPod(payload).then(() => router.push(`/`));
+      if (formInput.genreId !== 0) {
+        createPod(payload).then(() => router.push(`/`));
+      }
     }
+  };
+
+  const setGenreId = (e) => {
+    setFormInput((prevState) => ({
+      ...prevState,
+      genreId: e,
+    }));
   };
 
   return (
@@ -64,9 +77,13 @@ function PodcastForm({ obj = initialState, podcastId }) {
       </FloatingLabel>
 
       {/* GENRE INPUT  */}
-      <FloatingLabel controlId="floatingInput4" label="Podcast Genre" className="mb-3">
+      <div>
+        <ModalForGenre genres={genreList} singleGenreId={setGenreId} /> <p className="text-white">Current Genre: {formInput.genreId === 0 ? 'No Genre Selected' : genreList.find((genre) => genre.id === formInput.genreId)?.name}</p>
+        {/* value={formInput.genre.id} */}
+      </div>
+      {/* <FloatingLabel controlId="floatingInput4" label="Podcast Genre" className="mb-3">
         <Form.Control type="text" placeholder="Enter Podcast Genre" name="genreId" value={formInput.genreId} onChange={handleChange} />
-      </FloatingLabel>
+      </FloatingLabel> */}
       {/* Change Genre input to Genre names instead of entering a number. */}
 
       {/* SUBMIT BUTTON  */}
@@ -83,6 +100,7 @@ PodcastForm.propTypes = {
     userId: PropTypes.number,
     genreId: PropTypes.number,
   }),
+
   podcastId: PropTypes.number.isRequired,
 };
 
