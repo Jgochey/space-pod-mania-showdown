@@ -9,6 +9,7 @@ import PodCard from '../components/PodcastCard';
 import { getPods } from '../api/podData';
 import { useAuth } from '../utils/context/authContext';
 import Sort from '../components/Sort';
+import SearchBar from '../components/SearchBar';
 import { getSingleGenres } from '../api/genreData';
 
 function Home() {
@@ -29,6 +30,9 @@ function Home() {
 
   return (
     <div className="text-center my-4">
+      <div className="searchBar">
+        <SearchBar />
+      </div>
       <Sort singleGenreId={setGenreId} allPods={getAllPods} />
       <Link href="/pod/new" passHref>
         <Button>Add A Podcast</Button>

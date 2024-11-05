@@ -9,7 +9,7 @@ import { Button } from 'react-bootstrap';
 import { useAuth } from '../../utils/context/authContext';
 import { createPod, updatePod } from '../../api/podData';
 import ModalForGenre from '../ModalForGenre';
-import getGenres from '../../api/genreData';
+import { getGenres } from '../../api/genreData';
 
 const initialState = {
   title: '',
