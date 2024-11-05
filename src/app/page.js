@@ -8,33 +8,32 @@ import Link from 'next/link';
 import PodCard from '../components/PodcastCard';
 import { getPods } from '../api/podData';
 import { useAuth } from '../utils/context/authContext';
+import Sort from '../components/Sort';
+import { getSingleGenres } from '../api/genreData';
 
 function Home() {
   const [pods, setPods] = useState([]);
   const { user } = useAuth();
 
-  // TODO: create a function that makes the API call to get all the books
   const getAllPods = () => {
     getPods(user.id).then(setPods);
   };
 
-  // TODO: make the call to the API to get all the books on component render
   useEffect(() => {
-    // Delete when done
-    // console.warn(user.id);
     getAllPods();
   }, []);
 
+  const setGenreId = (genreId) => {
+    getSingleGenres(genreId, user.id).then(setPods);
+  };
+
   return (
     <div className="text-center my-4">
+      <Sort singleGenreId={setGenreId} allPods={getAllPods} />
       <Link href="/pod/new" passHref>
         <Button>Add A Podcast</Button>
       </Link>
-      <div className="d-flex flex-wrap justify-content-md-center">
-        {pods.map((pod) => (
-          <PodCard key={pod.id} podObj={pod} podcastUser={pod?.user?.id} onUpdate={getAllPods} />
-        ))}
-      </div>
+      <div className="d-flex flex-wrap justify-content-md-center">{pods === 'There are no podcast with the genreId.' ? <h1>No Podcasts</h1> : pods?.map((pod) => <PodCard key={pod.id} podObj={pod} podcastUser={pod?.user?.id} onUpdate={getAllPods} />)}</div>
     </div>
   );
 }
