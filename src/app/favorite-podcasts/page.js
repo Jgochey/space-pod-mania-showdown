@@ -8,6 +8,7 @@ import Link from 'next/link';
 import PodCard from '@/components/PodcastCard';
 import { getFavPods } from '@/api/podData';
 import { useAuth } from '../../utils/context/authContext';
+import SearchBar from '../../components/SearchBar';
 
 function FavoritePods() {
   const [pods, setPods] = useState([]);
@@ -25,6 +26,9 @@ function FavoritePods() {
 
   return (
     <div className="text-center my-4">
+      <div className="searchBar">
+        <SearchBar favorite />
+      </div>
       <Link href="/pod/new" passHref>
         <Button>Add A Podcast</Button>
       </Link>

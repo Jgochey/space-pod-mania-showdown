@@ -29,3 +29,9 @@ width: 100vw;
 .genreTitle {
   color: black;
 }
+
+.searchBar {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 1rem;
+}
