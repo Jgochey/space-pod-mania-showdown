@@ -27,7 +27,7 @@ function FavoritePods() {
   return (
     <div className="text-center my-4">
       <div className="searchBar">
-        <SearchBar />
+        <SearchBar favorite />
       </div>
       <Link href="/pod/new" passHref>
         <Button>Add A Podcast</Button>

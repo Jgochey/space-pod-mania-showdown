@@ -1,8 +1,9 @@
 import React, { useState } from 'react';
 import Form from 'react-bootstrap/Form';
 import { useRouter } from 'next/navigation';
+import PropTypes from 'prop-types';
 
-export default function SearchBar() {
+export default function SearchBar({ favorite = false }) {
   const [formInput, setFormInput] = useState('');
   const router = useRouter();
 
@@ -12,7 +13,13 @@ export default function SearchBar() {
 
   const handleSearch = (e) => {
     e.preventDefault();
-    if (formInput !== '') router.push(`/search/${formInput}`);
+    if (formInput !== '') {
+      if (favorite !== true) {
+        router.push(`/search/${formInput}`);
+      } else {
+        router.push(`/favSearch/${formInput}`);
+      }
+    }
   };
 
   return (
@@ -21,3 +28,7 @@ export default function SearchBar() {
     </Form>
   );
 }
+
+SearchBar.propTypes = {
+  favorite: PropTypes.bool,
+};
