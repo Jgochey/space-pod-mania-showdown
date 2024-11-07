@@ -1,5 +1,5 @@
 import React from 'react';
-import { Button } from 'react-bootstrap';
+import { Button , Image } from 'react-bootstrap';
 import { signIn } from '../utils/auth';
 
 function Signin() {
@@ -14,7 +14,7 @@ function Signin() {
         margin: '0 auto',
       }}
     >
-      <p>Click the button below to login!</p>
+      <Image style={{ width: '22rem' }} src="/images/PODLOGO.png" />
       <Button type="button" size="lg" className="copy-btn" onClick={signIn}>
         Sign In
       </Button>

@@ -29,9 +29,11 @@ function FavoritePods() {
       <div className="searchBar">
         <SearchBar favorite />
       </div>
-      <Link href="/pod/new" passHref>
-        <Button>Add A Podcast</Button>
-      </Link>
+      <div className="homePageTopBtns">
+        <Link href="/pod/new" passHref>
+          <Button>Add A Podcast</Button>
+        </Link>
+      </div>
       <div className="d-flex flex-wrap justify-content-md-center">
         {pods.map((pod) => (
           <PodCard key={pod.id} podObj={pod} onUpdate={getFavPodList} />

@@ -41,7 +41,7 @@ function EpisodeForm({ obj = initialState, podcastId }) {
       updateEpisode(formInput).then(() => router.push(`/view-page/${podcastId}`));
     } else {
       const payload = { ...formInput, podcastId };
-      createEpisode(payload).then((episode) => router.push(`/view-page/${episode.podcastId}`));
+      createEpisode(payload).then(() => router.push(`/view-page/${podcastId}`));
     }
   };
 

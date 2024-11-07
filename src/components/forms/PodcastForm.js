@@ -78,7 +78,8 @@ function PodcastForm({ obj = initialState, podcastId }) {
 
       {/* GENRE INPUT  */}
       <div>
-        <ModalForGenre genres={genreList} singleGenreId={setGenreId} /> <p className="text-white">Current Genre: {formInput.genreId === 0 ? 'No Genre Selected' : genreList.find((genre) => genre.id === formInput.genreId)?.name}</p>
+        <ModalForGenre genres={genreList} singleGenreId={setGenreId} />
+        <p className="currentGenreName">Current Genre: {formInput.genreId === 0 ? 'No Genre Selected' : genreList.find((genre) => genre.id === formInput.genreId)?.name}</p>
         {/* value={formInput.genre.id} */}
       </div>
       {/* <FloatingLabel controlId="floatingInput4" label="Podcast Genre" className="mb-3">

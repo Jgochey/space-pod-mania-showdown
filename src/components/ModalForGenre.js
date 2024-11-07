@@ -26,7 +26,7 @@ function ModalForGenre({ genres, singleGenreId }) {
         <Modal.Body>
           {genres.map((genre) => (
             // GIVE DATA
-            <Button variant="success" onClick={() => submitClick(genre.id)}>
+            <Button className="genreModalList" variant="success" onClick={() => submitClick(genre.id)}>
               {genre.name}
             </Button>
           ))}
