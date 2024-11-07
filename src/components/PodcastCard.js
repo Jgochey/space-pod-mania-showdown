@@ -22,7 +22,7 @@ function PodCard({ podObj, onUpdate, podcastUser }) {
   };
 
   return (
-    <Card style={{ width: '18rem', margin: '10px' }}>
+    <Card className="podcastCards" style={{ width: '18rem', margin: '10px' }}>
       <Card.Img variant="top" src={podObj.imageUrl} alt={podObj.title} style={{ height: '400px' }} />
       <Card.Body>
         <Card.Title>{podObj.title}</Card.Title>

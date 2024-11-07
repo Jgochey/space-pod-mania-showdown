@@ -50,17 +50,17 @@ export default function ShowdownPage() {
       </div>
       <div className="showdownText">
         <div className="showdownTopText">
-          <h1>Welcome To Showdown! Select A Genre!</h1>
+          <h1 style={{ color: 'white' }}>Welcome to Showdown! Select A Genre!</h1>
         </div>
         <div className="showdownBottomText">
-          <h5>Two Podcasts Will Go Head To Head And You Decide Which One You Enjoy More!</h5>
+          <h5 style={{ color: 'white' }}>Two Podcasts will go head to head and You decide which one You enjoy more!</h5>
         </div>
       </div>
       <div className="showdownGenres">
         <Dropdown>
           <div className="genreSelector">
             <Dropdown.Toggle variant="success" id="dropdown-basic">
-              Choose A Genre
+              Choose a Genre
             </Dropdown.Toggle>
           </div>
 
@@ -75,7 +75,7 @@ export default function ShowdownPage() {
         </Dropdown>
         <h5 className="currentGenre">Current Genre: {genredata === '' ? 'No Genre Selected' : genredata}</h5>
       </div>
-      <div className="showdownCards">{pods === 'There are not enough podcasts in this genre.' || pods === 'All Podcasts from this Genre have been voted on' ? <h1>No Podcasts Avaliable in This Genre</h1> : pods?.map((pod) => <ShowdownCard voteForPodcast={win} podObj={pod} />)}</div>
+      <div className="showdownCards">{pods === 'There are not enough podcasts in this genre.' || pods === 'All Podcasts from this Genre have been voted on' ? <h1 style={{ color: 'yellow' }}>No Podcasts avaliable in this Genre</h1> : pods?.map((pod) => <ShowdownCard voteForPodcast={win} podObj={pod} />)}</div>
     </div>
   );
 }

@@ -26,23 +26,23 @@ export default function ViewPage({ params }) {
   return (
     <div>
       <div className="viewpageTitle">
-        <h1>{podcastDetails.title}</h1>
+        <h1 style={{ color: 'white' }}>{podcastDetails.title}</h1>
       </div>
       <div className="showdownVotes">
         <div className="upvotes">
           <h2>↑</h2>
         </div>
-        <h2>{podcastDetails.showdownWins}</h2>
+        <h2 style={{ color: 'white' }}>{podcastDetails.showdownWins}</h2>
         <div className="viewpageDownvotes">
           <h2>↓</h2>
         </div>
-        <h2>{podcastDetails.showdownLosses}</h2>
+        <h2 style={{ color: 'white' }}>{podcastDetails.showdownLosses}</h2>
       </div>
       <div className="viewPageImage">
         <Image variant="top" src={podcastDetails.imageUrl} alt={podcastDetails.description} style={{ height: '400px' }} />
       </div>
       <div className="viewpageEpisodeText">
-        <h4>{podcastDetails.title} Episodes</h4>
+        <h4 style={{ color: 'white' }}>{podcastDetails.title} Episodes</h4>
       </div>
       <div className="EpisodeListContainer">
         <div className="EpisodeList">
