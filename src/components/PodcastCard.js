@@ -27,16 +27,21 @@ function PodCard({ podObj, onUpdate, podcastUser }) {
       <Card.Body>
         <Card.Title>{podObj.title}</Card.Title>
         <Card.Title>{podObj.genre.name}</Card.Title>
-        {/* {podObj.genres.map((genre) => (
-          <p key={genre.id}>{genre.name}</p>
-        ))} */}
-        {/* DYNAMIC LINK TO VIEW THE BOOK DETAILS  */}
+        <div className="showdownVotes">
+          <div className="upvotes">
+            <Card.Title>↑</Card.Title>
+          </div>
+          <Card.Title>{podObj.showdownWins}</Card.Title>
+          <div className="downvotes">
+            <Card.Title>↓</Card.Title>
+          </div>
+          <Card.Title>{podObj.showdownLosses}</Card.Title>
+        </div>
         <Link href={`view-page/${podObj.id}`} passHref>
           <Button variant="primary" className="m-2">
             VIEW
           </Button>
         </Link>
-
         {user.id === podcastUser && (
           <>
             <Link href={`pod/edit/${podObj.id}`} passHref>
@@ -64,6 +69,8 @@ PodCard.propTypes = {
   }),
 
   podObj: PropTypes.shape({
+    showdownWins: PropTypes.number,
+    showdownLosses: PropTypes.number,
     imageUrl: PropTypes.string,
     favorite: PropTypes.bool,
     title: PropTypes.string,
