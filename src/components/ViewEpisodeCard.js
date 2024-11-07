@@ -34,19 +34,13 @@ function ViewPodcastCard({ episode, onUpdate, idPodcast, podcastUser }) {
 
   return (
     <Card style={{ width: '70%', margin: '10px' }}>
-      <div className="mt-5 d-flex flex-wrap">
-        <Card.Title> {episode.title} </Card.Title>
-        <div className="d-flex flex-column">{episode.imageUrl !== '' ? <img src={episode.imageUrl} alt="" style={{ width: '240px' }} /> : <Image style={{ width: '6.5rem' }} src="/images/PODLOGO.png" />}</div>
-        <div className="text-white ms-5 details" />
-
-        <Card.Body> {episode.description} </Card.Body>
-        <Card.Body>Uploaded on: {episode.createdOn}</Card.Body>
-        {/* <p>Uploaded by: {episode.userId} </p> */}
-
-        {/* {podcastDetails.favorite ? ' 🤍' : ''} */}
+      <div className="episodeImage">{episode.imageUrl !== '' ? <img src={episode.imageUrl} alt="" style={{ width: '240px' }} /> : <Image style={{ width: '6.5rem' }} src="/images/PODLOGO.png" />}</div>
+      <div className="episodeCardInfo">
+        <Card.Title className="episodeCardInfoToCenter"> {episode.title} </Card.Title>
+        <Card.Title className="episodeCardInfoToCenter"> {episode.description} </Card.Title>
+        <Card.Title className="episodeCardInfoToCenter">Uploaded on: {episode.createdOn}</Card.Title>
       </div>
-
-      <div>
+      <div className="episodeBtns">
         <Button variant={episode?.favorited ? 'danger' : 'outline-danger'} onClick={doFav}>
           {episode?.favorited ? '⭐' : '❌'}
         </Button>
@@ -55,7 +49,6 @@ function ViewPodcastCard({ episode, onUpdate, idPodcast, podcastUser }) {
             <Link href={`/view-page/${idPodcast}/edit-episode/${episode.id}`} passHref>
               <Button variant="info">EDIT</Button>
             </Link>
-
             <Button variant="danger" onClick={deleteThisEpisode}>
               DELETE
             </Button>

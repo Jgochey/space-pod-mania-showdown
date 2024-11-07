@@ -15,6 +15,7 @@ body {
   flex-wrap: wrap;
   margin: 0 auto;
   align-items: center;
+  margin-bottom: 1%;
 }
 
 .EpisodeListContainer {
@@ -24,6 +25,7 @@ width: 100vw;
 .uploadBtn {
   display: flex;
   justify-content: center;
+  margin-bottom: 5%;
 }
 
 .genreTitle {
@@ -48,4 +50,110 @@ width: 100vw;
 
 .downvotes {
   color: red;
+  margin-left: 1rem;
+}
+
+.genreSelector {
+  display: flex;
+  justify-content: center;
+}
+
+.showdownText {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  margin-top: 1%;
+}
+
+.showdownCards {
+  display: flex;
+  justify-content: center;
+  margin-top: 1%;
+  gap: 30%;
+}
+
+.showdownTopText {
+  display: flex;
+  justify-content: center;
+}
+
+.showdownBottomText {
+  display: flex;
+  justify-content: center;
+  margin-bottom: .5%;
+}
+
+.showdownVS {
+  position: absolute;
+  margin-left: 44.75%;
+  margin-top: 15%
+}
+
+.viewpageTitle {
+  display: flex;
+  justify-content: center;
+}
+
+.viewpageDownvotes {
+  color: red;
+  margin-left: 2%;
+}
+
+.viewPageImage {
+  display: flex;
+  justify-content: center;
+}
+
+.viewpageEpisodeText {
+  margin-top: 2%;
+  display: flex;
+  justify-content: center;
+}
+
+.episodeCardInfo {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  row-gap: 1rem;
+}
+
+.episodeCardInfoToCenter {
+  display: flex;
+  justify-content: center;
+}
+
+.episodeImage {
+  display: flex;
+  justify-content: center;
+}
+
+.episodeBtns {
+  display: flex;
+  justify-content: center;
+  column-gap: 1rem;
+}
+
+.homePageTopBtns {
+  margin-bottom: 1%;
+}
+
+.currentGenre {
+  color: white;
+  margin-top: 1rem;
+}
+
+.currentGenre {
+  display: flex;
+  justify-content: center;
+}
+
+.currentGenreName {
+  margin-top: 1rem;
+  color: white;
+}
+
+.genreModalList {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: .5%;
 }

@@ -37,27 +37,32 @@ function PodCard({ podObj, onUpdate, podcastUser }) {
           </div>
           <Card.Title>{podObj.showdownLosses}</Card.Title>
         </div>
-        <Link href={`view-page/${podObj.id}`} passHref>
-          <Button variant="primary" className="m-2">
-            VIEW
-          </Button>
-        </Link>
-        {user.id === podcastUser && (
-          <>
-            <Link href={`pod/edit/${podObj.id}`} passHref>
+        <div className="userPodBtns">
+          <div className="userPodTopBtns">
+            <Link href={`view-page/${podObj.id}`} passHref>
               <Button variant="primary" className="m-2">
-                EDIT
+                VIEW
               </Button>
             </Link>
-            <Button variant="danger" onClick={deleteThisPodcast}>
-              DELETE
+            <Button variant={podObj.favorite ? 'danger' : 'outline-danger'} onClick={doFav}>
+              {podObj.favorite ? '⭐' : '❌'}
             </Button>
-          </>
-        )}
-
-        <Button variant={podObj.favorite ? 'danger' : 'outline-danger'} onClick={doFav}>
-          {podObj.favorite ? '⭐' : '❌'}
-        </Button>
+          </div>
+          <div className="userPodBottomBtns">
+            {user.id === podcastUser && (
+              <>
+                <Link href={`pod/edit/${podObj.id}`} passHref>
+                  <Button variant="primary" className="m-2">
+                    EDIT
+                  </Button>
+                </Link>
+                <Button variant="danger" onClick={deleteThisPodcast}>
+                  DELETE
+                </Button>
+              </>
+            )}
+          </div>
+        </div>
       </Card.Body>
     </Card>
   );

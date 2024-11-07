@@ -9,11 +9,11 @@ function ShowdownCard({ podObj, voteForPodcast }) {
   return (
     <Card style={{ width: '18rem', margin: '10px' }}>
       <Card.Img variant="top" src={podObj.imageUrl} alt={podObj.title} style={{ height: '400px' }} />
-      <Card.Body>
+      <Card.Body className="showdownText">
         <Card.Title>{podObj.title}</Card.Title>
         <Card.Title>{podObj.description}</Card.Title>
         <Button variant="success" className="m-2" onClick={() => voteForPodcast(podObj.id)}>
-          WINNER
+          Vote For This Podcast!
         </Button>
       </Card.Body>
     </Card>

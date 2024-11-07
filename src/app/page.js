@@ -33,10 +33,14 @@ function Home() {
       <div className="searchBar">
         <SearchBar />
       </div>
-      <Sort singleGenreId={setGenreId} allPods={getAllPods} />
-      <Link href="/pod/new" passHref>
-        <Button>Add A Podcast</Button>
-      </Link>
+      <div className="homePageTopBtns">
+        <Sort singleGenreId={setGenreId} allPods={getAllPods} />
+      </div>
+      <div className="homePageTopBtns">
+        <Link href="/pod/new" passHref>
+          <Button>Add A Podcast</Button>
+        </Link>
+      </div>
       <div className="d-flex flex-wrap justify-content-md-center">{pods === 'There are no podcast with the genreId.' ? <h1>No Podcasts</h1> : pods?.map((pod) => <PodCard key={pod.id} podObj={pod} podcastUser={pod?.user?.id} onUpdate={getAllPods} />)}</div>
     </div>
   );
