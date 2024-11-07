@@ -35,3 +35,17 @@ width: 100vw;
   justify-content: center;
   margin-bottom: 1rem;
 }
+
+.showdownVotes {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.upvotes {
+  color: lightgreen;
+}
+
+.downvotes {
+  color: red;
+}
