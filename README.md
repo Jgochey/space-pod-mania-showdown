@@ -1,46 +1,33 @@
-# NextJS with Firebase Auth App Router Template
+## About The Project
 
-[See Live Demo of this Template](https://drt-next-js-template-app-router.netlify.app/)
+Space Pod Mania Showdown is an interactive web application that allows users to explore and compare podcasts across a variety of genres. The app’s standout feature, "Showdown," lets users engage in a fun and engaging voting system, where they can select their favorite podcasts in a specific genre, contributing to the overall ranking of each podcast. Users can explore podcasts from different genres, such as comedy, tech, hisotry, and more. After selecting a genre, they can use the Showdown feature to rate podcasts against each other. Their ratings affect the podcasts' scores, contributing to the overall rankings.
 
-## Topics
-- [Get Started](#get-started)
-- [Starting the Project](#starting-the-project)
-- [Deploying on Netlify](#deploying-on-netlify)
-___
-## Getting Started
-### Use Template
-#### 1. To get started, click the GREEN "Use this Template" button at the top of the repo
-<img width="915" alt="Screen Shot 2022-07-06 at 12 54 01 PM" src="https://user-images.githubusercontent.com/29741570/177612998-4aac9237-5a1e-4f13-8ae0-468587521564.png">
+### Links
 
-#### 2. Make sure YOUR github account is selected in the dropdown and name your project
-<img width="763" alt="Screen Shot 2022-07-06 at 12 54 48 PM" src="https://user-images.githubusercontent.com/29741570/177613126-dd38f678-7553-4f27-8a4a-75680f14d71e.png">
+- [Github Project Board](https://github.com/users/Jgochey/projects/6)
+- [ERD](https://dbdiagram.io/d/Space-Pod-Mania-Showdown-670aa3ef97a66db9a3c196f9)
+- [Wireframe](https://miro.com/app/board/uXjVLT_p3yc=/?share_link_id=259874591217)
 
-#### 3. Clone your new repo to your local machine
-#### 4. Go to the **NEXT** section
 
-## Starting the Project
-1. Create a Firebase project and set up authentication. Use [these videos](https://vimeo.com/showcase/codetracker-firebase) as a refresher if needed.
-1. From your command line, be in the root directory and run `npm install` OR `npm i` for short.
-1. Next, run `npm run prepare`. This command sets up husky to track eslint errors on commit that will make your deploy fail on Netlify.
-1. To start your application, run `npm run dev`. THIS IS THE COMMAND YOU WILL USE TO RUN YOUR DEVELOPMENT SERVER FROM NOW ON.
-1. Open [http://localhost:3000](http://localhost:3000) with your browser.
+### Features
+- Genre-based Podcast Exploration: Browse podcasts by genre, such as Comedy, True Crime, Technology, and more.
+- Showdown Voting System: Engage in fun head-to-head matchups where users vote for their favorite podcast in a particular genre.
+- Dynamic Podcast Scores: The votes users cast will directly affect the overall score of each podcast.
+- Custom Podcasts: Pick a genre to Create your own Podcast and Episodes.
+- Episode Information: View each podcast to see Episode lists and descriptions.
+- Select Favorites: Save Podcasts and Episodes as favorites to easily find them later.
 
-### Deploying on Netlify
-Netlify will automatically detect your project and prepopulate the settings, but should something go wrong and it does not, here are the commands:
+## Project Screenshots
 
-- Build Command: `npm run build`
-- Publish directory: `.next`
+<img width="300" alt="Main Page" src="https://media.discordapp.net/attachments/1116212815993249792/1342877308809252894/spacepod_main.png?ex=67bb3b73&is=67b9e9f3&hm=01727d9b4ce0ce48039622336beda1e6b3584d584eb415fd0cb80256f1792603&=&format=webp&quality=lossless&width=1380&height=670">
 
-#### Additional Steps to Take on Netlify
-- Add Environmental Variables
-    - Any Enviromental variables you are using in your `.env` file should be added to Netlify. 
-        - Go to Site settings > Build & deploy > Environment > Environment variables and the keys and values there if you did not add them when you were deploying your site
+<img width="300" alt="Adding New Podcast" src="https://media.discordapp.net/attachments/1116212815993249792/1342877308419178548/spacepod_create.png?ex=67bb3b73&is=67b9e9f3&hm=e911c8d9245745faf2e868f1945b958053122705b3e39d4be8900b1c9fa13aee&=&format=webp&quality=lossless">
 
-- Update Firebase URL Settings
-    - In Firebase under Authentication select sign in methods, scroll to Authorized domains. Add your Netlify URL.
-        
-## Learn More about Next.js
-To learn more about Next.js, take a look at the following resources:
+<img width="300" alt="Showdown!" src="https://media.discordapp.net/attachments/1116212815993249792/1342877307886374974/spacepod_showdown.png?ex=67bb3b73&is=67b9e9f3&hm=43c968a0b2a36f2e8b176d0883ed6cd48e20d9e2d40d5c54ba1c931394e64119&=&format=webp&quality=lossless&width=993&height=671">
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Contributing
+
+Alex Berka - https://github.com/alexberka
+Josh Gochey - https://github.com/Jgochey
+Britnay Gore - https://github.com/britnay268
+Max Jones - https://github.com/MaxJones129
