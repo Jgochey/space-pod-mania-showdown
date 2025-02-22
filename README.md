@@ -27,7 +27,7 @@ Space Pod Mania Showdown is an interactive web application that allows users to 
 
 ## Contributing
 
-Alex Berka - https://github.com/alexberka
-Josh Gochey - https://github.com/Jgochey
-Britnay Gore - https://github.com/britnay268
-Max Jones - https://github.com/MaxJones129
+- Alex Berka - https://github.com/alexberka
+- Josh Gochey - https://github.com/Jgochey
+- Britnay Gore - https://github.com/britnay268
+- Max Jones - https://github.com/MaxJones129
