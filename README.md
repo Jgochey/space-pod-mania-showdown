@@ -19,11 +19,11 @@ Space Pod Mania Showdown is an interactive web application that allows users to 
 
 ## Project Screenshots
 
-<img width="300" alt="Main Page" src="https://media.discordapp.net/attachments/1116212815993249792/1342877308809252894/spacepod_main.png?ex=67bb3b73&is=67b9e9f3&hm=01727d9b4ce0ce48039622336beda1e6b3584d584eb415fd0cb80256f1792603&=&format=webp&quality=lossless&width=1380&height=670">
+<img width="300" alt="Main Page" src="https://cdn.discordapp.com/attachments/1116212815993249792/1342877308809252894/spacepod_main.png?ex=67c86a73&is=67c718f3&hm=52c1cb2cce8df88b158afe7295275fa8c0b4644f327950505da52737caacfe49&">
 
-<img width="300" alt="Adding New Podcast" src="https://media.discordapp.net/attachments/1116212815993249792/1342877308419178548/spacepod_create.png?ex=67bb3b73&is=67b9e9f3&hm=e911c8d9245745faf2e868f1945b958053122705b3e39d4be8900b1c9fa13aee&=&format=webp&quality=lossless">
+<img width="300" alt="Adding New Podcast" src="https://cdn.discordapp.com/attachments/1116212815993249792/1342877308419178548/spacepod_create.png?ex=67c86a73&is=67c718f3&hm=3d7ecc895fc4fc6fa32a6dae21b77664335211c9a13d8428a71353d3cd1aae54&">
 
-<img width="300" alt="Showdown!" src="https://media.discordapp.net/attachments/1116212815993249792/1342877307886374974/spacepod_showdown.png?ex=67bb3b73&is=67b9e9f3&hm=43c968a0b2a36f2e8b176d0883ed6cd48e20d9e2d40d5c54ba1c931394e64119&=&format=webp&quality=lossless&width=993&height=671">
+<img width="300" alt="Showdown!" src="https://cdn.discordapp.com/attachments/1116212815993249792/1342877307886374974/spacepod_showdown.png?ex=67c86a73&is=67c718f3&hm=48f36748ea3a33c530beabdcc697e4f744c6ebc3dc1595202d78cd41cfb54203&">
 
 ## Contributing
 
